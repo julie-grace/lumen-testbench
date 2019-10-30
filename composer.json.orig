@@ -1,0 +1,45 @@
+{
+    "name": "unicorn/lumen-testbench",
+    "description": "Lumen fork of the orchestra/testbench Laravel Testing Helper for Packages Development",
+    "homepage": "http://orchestraplatform.com/docs/latest/components/testbench/",
+    "keywords": ["laravel", "orchestral", "orchestra-platform", "testing", "tdd", "bdd", "lumen"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mior Muhammad Zaki",
+            "email": "crynobone@gmail.com",
+            "homepage": "https://github.com/crynobone"
+        }
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Lumen\\Testbench\\Tests\\": "core/tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+<<<<<<< HEAD
+        "laravel/lumen-framework": "^6.4",
+        "mockery/mockery": "^1.2.3",
+        "phpunit/phpunit": "^8.3",
+        "unicorn/lumen-testbench-core": "^4.3"
+=======
+        "laravel/framework": "^7.0",
+        "mockery/mockery": "^1.2.3",
+        "orchestra/testbench-core": "^5.0",
+        "phpunit/phpunit": "^8.3"
+>>>>>>> origin/master
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "5.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "unicorn/lumen-testing": "dev-master"
+    }
+}

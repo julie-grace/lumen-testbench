@@ -1,6 +1,7 @@
 #!/bin/bash
 
-BRANCH='4.x'
+BRANCH='master'
+
 echo ">>>> Checkout branch $BRANCH"
 git checkout $BRANCH
 git submodule init
