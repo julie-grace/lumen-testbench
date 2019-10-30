@@ -33,6 +33,6 @@
     },
     "minimum-stability": "dev",
     "require-dev": {
-        "albertcht/lumen-testing": "dev-master"
+        "unicorn/lumen-testing": "dev-master"
     }
 }
