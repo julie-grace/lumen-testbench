@@ -1,4 +1,4 @@
 [submodule "core"]
 	path = core
-	url = https://github.com/orchestral/testbench-core.git
+	url = https://github.com/UnicornGlobal/lumen-testbench-core.git
     branch = master
