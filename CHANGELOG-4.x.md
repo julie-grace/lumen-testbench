@@ -1,6 +1,48 @@
 # Change for 4.x
 
-This changelog references the relevant changes (bug and security fixes) done to `orchestra/testbench-core`.
+This changelog references the relevant changes (bug and security fixes) done to `orchestra/testbench`.
+
+## 4.7.0
+
+Released: 2020-03-07
+
+### Changes
+
+* Update minimum support for Laravel Framework v6.18.0+. ([v6.9.0...v6.18.0](https://github.com/laravel/framework/compare/v6.9.0...v6.18.0))
+* Update minimum support for Testbench Core v4.7.0+. ([v4.6.0...v4.7.0](https://github.com/orchestral/testbench-core/compare/v4.6.0...v4.7.0))
+
+## 4.6.0
+
+Released: 2020-01-30
+
+### Changes
+
+* Update minimum support for Testbench Core v4.6.0+. ([v4.4.0...v4.6.0](https://github.com/orchestral/testbench-core/compare/v4.4.0...v4.6.0))
+
+## 4.5.0
+
+Released: 2020-01-08
+
+### Changes
+
+* Update minimum support for Laravel Framework v6.9.0+. ([v6.4.0...v6.9.0](https://github.com/laravel/framework/compare/v6.4.0...v6.9.0))
+* Update minimum support for Testbench Core v4.5.0+. ([v4.4.1...v4.5.0](https://github.com/orchestral/testbench-core/compare/v4.4.1...v4.5.0))
+
+## 4.4.1
+
+Released: 2019-11-22
+
+### Changes
+
+* Update minimum support for Testbench Core v4.4.1+. ([v4.4.0...v4.4.1](https://github.com/orchestral/testbench-core/compare/v4.4.0...v4.4.1))
+
+## 4.4.0
+
+Released: 2019-11-22
+
+### Changes
+
+* Update minimum support for Testbench Core v4.4.0+. ([v4.3.0...v4.4.0](https://github.com/orchestral/testbench-core/compare/v4.3.0...v4.4.0))
 
 ## 4.3.0
 
@@ -45,7 +87,7 @@ Released: 2019-09-03
 
 ### Changes
 
-* Update support for Laravel Framework v6.0.
+* Update support for Laravel Framework v6.
 * Increase minimum PHP version to 7.2+ (tested with 7.2 and 7.3).
 * Increase minimum PHPUnit to v8.0+.
 * Configuration changes:

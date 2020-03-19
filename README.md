@@ -3,7 +3,7 @@ Laravel Testing Helper for Packages Development
 
 Testbench Component is a simple package that has been designed to help you write tests for your Laravel package, especially when there is routing involved.
 
-[![Build Status](https://travis-ci.org/orchestral/testbench.svg?branch=4.x)](https://travis-ci.org/orchestral/testbench)
+[![Build Status](https://travis-ci.org/orchestral/testbench.svg?branch=master)](https://travis-ci.org/orchestral/testbench)
 [![Latest Stable Version](https://poser.pugx.org/orchestra/testbench/v/stable)](https://packagist.org/packages/orchestra/testbench)
 [![Total Downloads](https://poser.pugx.org/orchestra/testbench/downloads)](https://packagist.org/packages/orchestra/testbench)
 [![License](https://poser.pugx.org/orchestra/testbench/license)](https://packagist.org/packages/orchestra/testbench)
@@ -31,6 +31,8 @@ Testbench Component is a simple package that has been designed to help you write
  5.7.x    | 3.7.x
  5.8.x    | 3.8.x
  6.x      | 4.x
+ 7.x      | 5.x
+ 8.x@dev  | 6.x@dev
 
 ## Getting Started
 
@@ -38,23 +40,9 @@ Before going through the rest of this documentation, please take some time to re
 
 ## Installation
 
-To install through composer, simply put the following in your `composer.json` file:
+To install through composer, run the following command from terminal:
 
-```json
-{
-    "require-dev": {
-        "orchestra/testbench": "^4.0"
-    }
-}
-```
-
-And then run `composer install` from the terminal.
-
-### Quick Installation
-
-Above installation can also be simplify by using the following command:
-
-    composer require --dev "orchestra/testbench=^4.0"
+    composer require --dev "orchestra/testbench"
 
 ## Usage
 
@@ -109,7 +97,9 @@ protected function setUp()
 }
 ```
 
-If you need to add something early in the application bootstrapping process, you could use the `getEnvironmentSetUp()` method:
+#### Setup Environment
+
+If you need to add something early in the application bootstrapping process (which executed between registering service providers and booting service providers) you could use the `getEnvironmentSetUp()` method:
 
 ```php
 /**
@@ -130,6 +120,40 @@ protected function getEnvironmentSetUp($app)
 }
 ```
 
+### Setup Environment using Annotation
+
+New in Testbench Core 4.4 is the ability to use `@environment-setup` annotation to customise use of `getEnvironmentSetUp` specific for each test.
+
+```php
+protected function useMySqlConnection($app) 
+{
+    $app->config->set('database.default', 'mysql');
+}
+
+protected function useSqliteConnection($app)
+{
+    $app->config->set('database.default', 'sqlite');
+}
+
+/**
+ * @environment-setup useMySqlConnection
+ */
+public function testItCanBeConnectedWithMySql()
+{
+    // write your tests
+}
+
+/**
+ * @environment-setup useSqliteConnection
+ */
+public function testItCanBeConnectedWithSqlite()
+{
+    // write your tests
+}
+```
+
+#### Memory SQLite Connection
+
 To reduce setup configuration, you could use `testing` database connection (`:memory:` with `sqlite` driver) via setting it up under `getEnvironmentSetUp()` or by defining it under PHPUnit Configuration File:
 
 ```xml
@@ -143,6 +167,8 @@ To reduce setup configuration, you could use `testing` database connection (`:me
 
 </phpunit>
 ```
+
+
 
 ### Overriding Console Kernel
 
@@ -290,6 +316,14 @@ The reason Testbench remove all the classes is to make sure that you would never
 
 * Removed, moved to other location such as `App\Models\User`, or
 * Renamed using `php artisan app:name Acme` which would rename `App\User` to `Acme\User`.
+
+### Class 'GuzzleHttp\Client' not found
+
+If you plan to use the new **HTTP Client** in Laravel 7, you need to include `guzzlehttp/guzzle` to your package's `composer.json`:
+
+    composer require "guzzlehttp/guzzle=^6.3.1"
+
+> We can't guarantee that any requirements in `laravel/laravel` will always be maintained as it is. Developer may remove any of the optional requirements such as `guzzlehttp/guzzle`, `fideloper/proxy`, `fruitcake/laravel-cors` or `laravel/tinker`.
 
 ### Missing Browser Kit support after testing on Laravel 5.4
 
