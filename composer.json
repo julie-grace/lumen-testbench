@@ -23,11 +23,6 @@
         "phpunit/phpunit": "^8.4 || ^9.0",
         "unicorn/lumen-testbench-core": "dev-master"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "6.0-dev"
-        }
-    },
     "config": {
         "sort-packages": true
     },
